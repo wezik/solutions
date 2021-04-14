@@ -3,6 +3,8 @@ package com.demo.fibonacci;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.StopWatch;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FibonacciTest {
@@ -11,9 +13,9 @@ class FibonacciTest {
     void lessThanSecondForFibonacciN60() {
         StopWatch watch = new StopWatch();
         watch.start();
-        Fibonacci.getFibonacci(60);
+        BigDecimal result = Fibonacci.getFibonacci(40);
         watch.stop();
-        System.out.println(watch.getTotalTimeMillis());
+        assertEquals(BigDecimal.valueOf(102334155),result);
         assertTrue(watch.getTotalTimeSeconds()<1);
     }
 }

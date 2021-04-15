@@ -16,14 +16,14 @@ public class TenMinWalk {
 
     public static boolean isValid(char[] walk) {
         if (walk.length!=10) return false;
-        int n = 0,s = 0,e = 0,w = 0;
+        int n = 0,w = 0;
         for (char c: walk) {
             if (c=='n') n++;
-            else if (c=='s') s++;
-            else if (c=='e') e++;
+            else if (c=='s') n--;
             else if (c=='w') w++;
+            else if (c=='e') w--;
         }
-        return (n==s && e==w);
+        return (n+w==0);
     }
 
 }

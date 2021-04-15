@@ -2,8 +2,6 @@ package com.demo.factorial;
 
 import java.math.BigDecimal;
 
-import static java.math.BigDecimal.ONE;
-
 public class Factorial {
 
     public static BigDecimal factorial(int n) {

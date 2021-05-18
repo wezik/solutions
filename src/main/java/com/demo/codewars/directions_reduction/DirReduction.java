@@ -97,7 +97,7 @@ public class DirReduction {
     public static String[] dirReduc(String[] arr) {
         List<String> directions = new ArrayList<>(Arrays.asList(arr));
         for (int i = 0; i+1 < directions.size(); i++) {
-            if("NORTHSOUTH SOUTHNORTH EASTWEST WESTEAST".contains(directions.get(i) + directions.get(i + 1))) {
+            if(directions.get(i).length()==directions.get(i + 1).length() && !directions.get(i).equals(directions.get(i+1))) {
                 directions.remove(i+1);
                 directions.remove(i);
                 i=-1;

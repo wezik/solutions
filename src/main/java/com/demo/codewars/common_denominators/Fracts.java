@@ -37,9 +37,39 @@ input is a string, e.g "2,4,2,6,2,8" output is then "6 12 4 12 3 12"
 
 public class Fracts {
 
+    private static long greatestCommonDivisor(long a, long b) {
+        return b == 0 ? a : greatestCommonDivisor(b, a % b);
+    }
+    private static long leastCommonMultiple(long a, long b) {
+        return a * b / greatestCommonDivisor(a, b);
+    }
     public static String convertFrac(long[][] lst) {
-
-        return null;
+        if (lst == null) {
+            return "";
+        }
+        if (lst.length <=0) {
+            return "";
+        }
+        StringBuilder result = new StringBuilder();
+        long[][] resultLst = new long[lst.length][2];
+        for  (int i = 0; i < lst.length; i++) {
+            long divisor = greatestCommonDivisor(lst[i][0], lst[i][1]);
+            resultLst[i][0] = lst[i][0] / divisor;
+            resultLst[i][1] = lst[i][1] / divisor;
+        }
+        long leastCommonMultipleAll = 1 ;
+        for (long[] l : resultLst) {
+            leastCommonMultipleAll = leastCommonMultiple(leastCommonMultipleAll, l[1]);
+        }
+        for (long[] l : resultLst) {
+            result.append("(")
+                    .append(l[0] * leastCommonMultipleAll / l[1])
+                    .append(",")
+                    .append(leastCommonMultipleAll)
+                    .append(")"
+                    );
+        }
+        return result.toString();
     }
 
 }

@@ -27,7 +27,6 @@ D	500
 M	1000
 */
 
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
